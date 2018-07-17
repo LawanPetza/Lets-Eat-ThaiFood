@@ -1,0 +1,25 @@
+{
+  "name": "lets-eat-thaifood",
+  "version": "1.0.0",
+  "description": "Let's Eat Thai Food",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LawanPetza/Lets-Eat-ThaiFood.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LawanPetza/Lets-Eat-ThaiFood/issues"
+  },
+  "homepage": "https://github.com/LawanPetza/Lets-Eat-ThaiFood#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
+  }
+}
