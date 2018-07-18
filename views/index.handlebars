@@ -7,67 +7,67 @@
     </div>
   </div>
   <!-- end .row -->
+  <div class="container">
+    <div class="row">
+      <center>
+        <div class="col-sm-6">
 
-  <div class="row">
-    <div class="col-sm-6">
+          <br>
+          <h2>Thai Food Available To Eat!</h2>
 
-      <br>
-      <h2>Thai Food Available To Eat!</h2>
+          <ul>
+            {{#each thaiFood}} {{#unless this.devoured}}
+            <li>
+              {{this.id}}. {{this.thaiFoodName}}
 
-      <ul>
-        {{#each thaiFood}} 
-        {{#unless this.devoured}}
-        <li>
-          {{this.id}} {{this.thaiFoodName}}
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+                <button class="btn-primary" type="submit">Devour It!</button>
+              </form>
 
-          <form action="/{{this.id}}?_method=PUT" method="POST">
-            <input type="hidden" name="devoured" value="true">
-            <button class="btn-primary" type="submit">Devour It!</button>
-          </form>
+            </li>
+            {{/unless}} {{/each}}
+          </ul>
 
-        </li>
-        {{/unless}}
-         {{/each}}
-      </ul>
-
-    </div>
-
-    <div class="col-sm-6">
-
-      <h2>Thai Food That Has Been Eaten!</h2>
-
-      {{#each thaiFood}}
-       {{#if this.devoured}}
-      <li>
-        {{this.id}} {{this.thaiFoodName}}
-
-      </li>
-      {{/if}}
-       {{/each}}
-
-    </div>
-
-  </div>
-  <!-- end .row -->
-
-  <div class="row">
-    <div class="center col-sm-12">
-
-      <h2>Add Thai Food!</h2>
-
-      <form class="create-update-form" action="/" method="POST">
-
-        <div class="form-group">
-          <p>Enter Thai Food you want to order and click the Submit Order button.</p>
-          <input type="text" id="food" name="name">
         </div>
 
-        <button class="btn-primary" type="submit">Submit Order</button>
-      </form>
+        <div class="col-sm-6">
 
+          <h2>Thai Food That Has Been Eaten!</h2>
+
+          {{#each thaiFood}} {{#if this.devoured}}
+          <li>
+            {{this.id}}. {{this.thaiFoodName}}
+
+          </li>
+          {{/if}} {{/each}}
+
+        </div>
+      </center>
     </div>
-
   </div>
   <!-- end .row -->
 
+  <div class="container">
+    <div class="row">
+      <div class="center col-sm-12">
+
+        <h2>Add Thai Food!</h2>
+
+        <form class="create-update-form" action="/" method="POST">
+
+          <div class="form-group">
+            <p>Enter Thai Food you want to order and click the Submit Order button.</p>
+            <input type="text" id="food" name="name">
+          </div>
+
+          <button class="btn-primary" type="submit">Submit Order</button>
+        </form>
+
+      </div>
+
+    </div>
+    <!-- end .row -->
+
+  </div>
 </div>
