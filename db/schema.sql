@@ -1,12 +1,12 @@
 -- Create the database and specified it for use.
-CREATE DATABASE thaifood_db;
-USE thaifood_db;
+CREATE DATABASE thaiFoodDB;
+USE thaiFoodDB;
 
 -- Create the table tasks.
-CREATE TABLE thaifood
+CREATE TABLE thaiFood
 (
 	id int NOT NULL AUTO_INCREMENT,
-	thaifood_name varchar(255) NOT NULL,
+	thaiFoodName varchar(255) NOT NULL,
 	devoured BOOLEAN NOT NULL DEFAULT 0,
 	date TIMESTAMP,
 	PRIMARY KEY (id)

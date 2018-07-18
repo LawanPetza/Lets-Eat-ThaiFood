@@ -1,38 +1,63 @@
-<h1>Cats!</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>Cats that are not sleepy!</h2>
+<head>
+	<meta charset="UTF-8">
+	<title>Thai Food</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<h1>Let's Eat Thai Food!</h1>
+
+{{!-- <h2>Cats that are not sleepy!</h2> --}}
 
 <ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
+  {{#each thaiFood}}
+    {{#unless this.devoured}}
+<li>
+  {{this.thaiFoodName}}
+</li>
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Cats that are sleepy!</h2>
+<h2>Food has been Eaten!</h2>
 
 <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+  {{#each thaiFood}}
+    {{#if this.devoured}}
+<li>
+  {{this.thaiFoodName}}
+</li>
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>Add a Cat</h2>
-<form class="create-form">
+
+<h2>Add Thai Food</h2>
+<form class="create-form" action = "/api/thaifood" method = "POST">
 
   <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+    <label for="food">:</label>
+    <input type="text" id="food" name="name">
   </div>
 
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
+  {{!-- <div class="form-group">
+    <label for="hungry">Hungry?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Order it!<br>
+    <input type="radio" name="devoured" value="0"> Cancel
+  </div> --}}
 
-  <button type="submit">Add Cat</button>
+  <button id = "btn" type="submit">Thai Food</button>
 </form>
+
+
+</body>
+</html>
