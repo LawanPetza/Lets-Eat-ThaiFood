@@ -1,63 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container bg">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Thai Food</title>
-	<!-- Latest compiled and minified CSS & JS -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
-
-<h1>Let's Eat Thai Food!</h1>
-
-{{!-- <h2>Cats that are not sleepy!</h2> --}}
-
-<ul>
-  {{#each thaiFood}}
-    {{#unless this.devoured}}
-<li>
-  {{this.thaiFoodName}}
-</li>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Food has been Eaten!</h2>
-
-<ul>
-  {{#each thaiFood}}
-    {{#if this.devoured}}
-<li>
-  {{this.thaiFoodName}}
-</li>
-    {{/if}}
-  {{/each}}
-</ul>
-
-
-<h2>Add Thai Food</h2>
-<form class="create-form" action = "/api/thaifood" method = "POST">
-
-  <div class="form-group">
-    <label for="food">:</label>
-    <input type="text" id="food" name="name">
+  <div class="row">
+    <div class="center col-sm-12">
+      <h1>Eat-Thai-Food-App</h1>
+      <p></p>
+    </div>
   </div>
+  <!-- end .row -->
 
-  {{!-- <div class="form-group">
-    <label for="hungry">Hungry?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Order it!<br>
-    <input type="radio" name="devoured" value="0"> Cancel
-  </div> --}}
+  <div class="row">
+    <div class="col-sm-6">
 
-  <button id = "btn" type="submit">Thai Food</button>
-</form>
+      <br>
+      <h2>Thai Food Available To Eat!</h2>
 
+      <ul>
+        {{#each thaiFood}} {{#unless this.devoured}}
+        <li>
+          {{this.id}} {{this.thaiFoodName}}
 
-</body>
-</html>
+          <form action="/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="devoured" value="true">
+            <button class="btn-primary" type="submit">Devour It!</button>
+          </form>
+
+        </li>
+        {{/unless}} {{/each}}
+      </ul>
+
+    </div>
+
+    <div class="col-sm-6">
+
+      <h2>Thai Food That Has Been Eaten!</h2>
+
+      {{#each thaiFood}} {{#if this.devoured}}
+      <li>
+        {{this.id}} {{this.burger_name}}
+
+      </li>
+      {{/if}} {{/each}}
+
+    </div>
+
+  </div>
+  <!-- end .row -->
+
+  <div class="row">
+    <div class="center col-sm-12">
+
+      <h2>Add Thai Food!</h2>
+
+      <form class="create-update-form" action="/api/thaifood" method="POST">
+
+        <div class="form-group">
+          <p>Enter Thai Food you want to order and click the Submit Order button.</p>
+          <input type="text" id="food" name="name">
+        </div>
+
+        <button class="btn-primary" type="submit">Submit Order</button>
+      </form>
+
+    </div>
+
+  </div>
+  <!-- end .row -->
+
+</div>
