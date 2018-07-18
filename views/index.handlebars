@@ -15,7 +15,8 @@
       <h2>Thai Food Available To Eat!</h2>
 
       <ul>
-        {{#each thaiFood}} {{#unless this.devoured}}
+        {{#each thaiFood}} 
+        {{#unless this.devoured}}
         <li>
           {{this.id}} {{this.thaiFoodName}}
 
@@ -25,7 +26,8 @@
           </form>
 
         </li>
-        {{/unless}} {{/each}}
+        {{/unless}}
+         {{/each}}
       </ul>
 
     </div>
@@ -34,12 +36,14 @@
 
       <h2>Thai Food That Has Been Eaten!</h2>
 
-      {{#each thaiFood}} {{#if this.devoured}}
+      {{#each thaiFood}}
+       {{#if this.devoured}}
       <li>
-        {{this.id}} {{this.burger_name}}
+        {{this.id}} {{this.thaiFoodName}}
 
       </li>
-      {{/if}} {{/each}}
+      {{/if}}
+       {{/each}}
 
     </div>
 
@@ -51,7 +55,7 @@
 
       <h2>Add Thai Food!</h2>
 
-      <form class="create-update-form" action="/api/thaifood" method="POST">
+      <form class="create-update-form" action="/" method="POST">
 
         <div class="form-group">
           <p>Enter Thai Food you want to order and click the Submit Order button.</p>
